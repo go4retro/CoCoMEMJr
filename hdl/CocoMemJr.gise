@@ -21,8 +21,121 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="CocoMemJr.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="CocoMemJr.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="CocoMemJr.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_GYD" xil_pn:name="CocoMemJr.gyd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_JEDEC" xil_pn:name="CocoMemJr.jed"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="CocoMemJr.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MFD" xil_pn:name="CocoMemJr.mfd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGA" xil_pn:name="CocoMemJr.nga"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="CocoMemJr.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="CocoMemJr.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="CocoMemJr.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="CocoMemJr.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PNX" xil_pn:name="CocoMemJr.pnx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CocoMemJr.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="CocoMemJr.rpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="CocoMemJr.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="CocoMemJr.syr"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="CocoMemJr.tim"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="CocoMemJr.tspec"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VM6" xil_pn:name="CocoMemJr.vm6"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="CocoMemJr.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="CocoMemJr.xst"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="CocoMemJr_build.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="CocoMemJr_html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="CocoMemJr_ngdbuild.xrpt"/>
+    <file xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="CocoMemJr_pad.csv"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="CocoMemJr_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1522108403" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1522108402">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1522108403" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="4981189876522492134" xil_pn:start_ts="1522108403">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1522130377" xil_pn:in_ck="-2285109866033884660" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="-8533171127452246592" xil_pn:start_ts="1522130370">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="CocoMemJr.lso"/>
+      <outfile xil_pn:name="CocoMemJr.ngc"/>
+      <outfile xil_pn:name="CocoMemJr.ngr"/>
+      <outfile xil_pn:name="CocoMemJr.prj"/>
+      <outfile xil_pn:name="CocoMemJr.stx"/>
+      <outfile xil_pn:name="CocoMemJr.syr"/>
+      <outfile xil_pn:name="CocoMemJr.xst"/>
+      <outfile xil_pn:name="CocoMemJr_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1522108409" xil_pn:in_ck="6835197618655508427" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8119255925647105599" xil_pn:start_ts="1522108409">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1522130383" xil_pn:in_ck="4813782498832384624" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-4251716299155370538" xil_pn:start_ts="1522130377">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="CocoMemJr.bld"/>
+      <outfile xil_pn:name="CocoMemJr.ngd"/>
+      <outfile xil_pn:name="CocoMemJr_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1522130728" xil_pn:in_ck="6835197618655500934" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="7145034455668436468" xil_pn:start_ts="1522130681">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="CocoMemJr.gyd"/>
+      <outfile xil_pn:name="CocoMemJr.mfd"/>
+      <outfile xil_pn:name="CocoMemJr.nga"/>
+      <outfile xil_pn:name="CocoMemJr.pad"/>
+      <outfile xil_pn:name="CocoMemJr.pnx"/>
+      <outfile xil_pn:name="CocoMemJr.rpt"/>
+      <outfile xil_pn:name="CocoMemJr.tim"/>
+      <outfile xil_pn:name="CocoMemJr.tspec"/>
+      <outfile xil_pn:name="CocoMemJr.vm6"/>
+      <outfile xil_pn:name="CocoMemJr.xml"/>
+      <outfile xil_pn:name="CocoMemJr_build.xml"/>
+      <outfile xil_pn:name="CocoMemJr_html"/>
+      <outfile xil_pn:name="CocoMemJr_pad.csv"/>
+    </transform>
+    <transform xil_pn:end_ts="1522130730" xil_pn:in_ck="6835197618655509798" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1522130728">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="CocoMemJr.jed"/>
+    </transform>
+    <transform xil_pn:end_ts="1522113010" xil_pn:in_ck="6835197618655496512" xil_pn:name="TRAN_impactProgrammingTool_CPLD" xil_pn:prop_ck="-8487078306172248444" xil_pn:start_ts="1522113010">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
+    </transform>
+    <transform xil_pn:end_ts="1522108444" xil_pn:in_ck="6835197618655509798" xil_pn:name="TRAN_timRpt" xil_pn:prop_ck="111903974446" xil_pn:start_ts="1522108442">
+      <status xil_pn:value="AbortedRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
+    </transform>
+  </transforms>
 
 </generated_project>

@@ -11,5 +11,26 @@
 <msg type="info" file="Cpld" num="0" delta="new" >Inferring BUFG constraint for signal &apos;<arg fmt="%s" index="1">e</arg>&apos; based upon the LOC constraint &apos;<arg fmt="%s" index="2">P32</arg>&apos;. It is recommended that you declare this BUFG explicitedly in your design. Note that for certain device families the output of a BUFG constraint can not drive a gated clock, and the BUFG constraint will be ignored.
 </msg>
 
+<msg type="info" file="Cpld" num="994" delta="new" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">5</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">25</arg>
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB6</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="new" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">5</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">24</arg>
+</msg>
+
+<msg type="error" file="Cpld" num="886" delta="old" >Function block <arg fmt="%s" index="1">FB6</arg> was too congested to route successfully. This occurs due to excessive (&gt;= 50) product term input fanins to this function block. Consider moving output signals in this function block to less congested function blocks, buffering output signals that must remain in this function block, or selecting a larger package.
+</msg>
+
+<msg type="error" file="Cpld" num="868" delta="old" >Cannot fit the design into any of the specified devices with the selected implementation options.
+</msg>
+
+<msg type="info" file="Cpld" num="994" delta="new" >Exhaustive fitting is trying <arg fmt="%s" index="1">pterm limit</arg>: <arg fmt="%d" index="2">5</arg> and <arg fmt="%s" index="3">input limit</arg>: <arg fmt="%d" index="4">23</arg>
+</msg>
+
 </messages>
 
