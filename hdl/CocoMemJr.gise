@@ -65,11 +65,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1522130377" xil_pn:in_ck="-2285109866033884660" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="-8533171127452246592" xil_pn:start_ts="1522130370">
+    <transform xil_pn:end_ts="1524620659" xil_pn:in_ck="-2285109866033884660" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="-8533171127452246592" xil_pn:start_ts="1524620651">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="CocoMemJr.lso"/>
       <outfile xil_pn:name="CocoMemJr.ngc"/>
       <outfile xil_pn:name="CocoMemJr.ngr"/>
@@ -86,21 +84,19 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1522130383" xil_pn:in_ck="4813782498832384624" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-4251716299155370538" xil_pn:start_ts="1522130377">
+    <transform xil_pn:end_ts="1524620665" xil_pn:in_ck="4813782498832384624" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-4251716299155370538" xil_pn:start_ts="1524620659">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="CocoMemJr.bld"/>
       <outfile xil_pn:name="CocoMemJr.ngd"/>
       <outfile xil_pn:name="CocoMemJr_ngdbuild.xrpt"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1522130728" xil_pn:in_ck="6835197618655500934" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="7145034455668436468" xil_pn:start_ts="1522130681">
+    <transform xil_pn:end_ts="1524620686" xil_pn:in_ck="6835197618655500934" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="7145034455668436468" xil_pn:start_ts="1524620665">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="CocoMemJr.gyd"/>
       <outfile xil_pn:name="CocoMemJr.mfd"/>
       <outfile xil_pn:name="CocoMemJr.nga"/>
@@ -115,17 +111,15 @@
       <outfile xil_pn:name="CocoMemJr_html"/>
       <outfile xil_pn:name="CocoMemJr_pad.csv"/>
     </transform>
-    <transform xil_pn:end_ts="1522130730" xil_pn:in_ck="6835197618655509798" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1522130728">
+    <transform xil_pn:end_ts="1524620688" xil_pn:in_ck="6835197618655509798" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1524620686">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="CocoMemJr.jed"/>
     </transform>
     <transform xil_pn:end_ts="1522113010" xil_pn:in_ck="6835197618655496512" xil_pn:name="TRAN_impactProgrammingTool_CPLD" xil_pn:prop_ck="-8487078306172248444" xil_pn:start_ts="1522113010">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
     </transform>
     <transform xil_pn:end_ts="1522108444" xil_pn:in_ck="6835197618655509798" xil_pn:name="TRAN_timRpt" xil_pn:prop_ck="111903974446" xil_pn:start_ts="1522108442">
@@ -133,7 +127,6 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
     </transform>
   </transforms>

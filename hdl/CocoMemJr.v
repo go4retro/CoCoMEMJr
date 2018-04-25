@@ -33,12 +33,23 @@ module CocoMemJr(
                  output _we_dat_l,
                  output _we_dat_h,
                  input r_w_cpu,
-                 output r_w_brd //,
-                 //output r_w_mem
+                 output r_w_brd 
                 );
 
+//`define TESTING
+
+`ifdef TESTING
 wire ce_test_low, ce_test_mid, ce_access_mem, ce_access_dat_lo;
 wire [20:0]addr;
+
+assign ce_test_low =                   address_cpu == 16'hfd00;
+assign ce_test_mid =                   address_cpu == 16'hfd01;
+assign ce_test_high =                  address_cpu == 16'hfd02;
+
+assign ce_access_mem =                 address_cpu == 16'hfd03;
+assign ce_access_dat_lo =              address_cpu == 16'hfd04;
+assign ce_access_dat_hi =              address_cpu == 16'hfd05;
+`endif
 
 wire ce_fxxx;
 wire ce_ffxx;
@@ -52,8 +63,8 @@ wire we_mem;
 wire ce_dat;
 wire flag_mmu_enabled;
 wire flag_crm_enabled;
-wire flag_set_mmu;
-wire flag_set_mmu_ext;
+wire flag_alt_regs;
+wire flag_ext_mmu;
 wire [11:0]dat_task_active; // 5 bits of task number in init1 register + 7 bits of tasklets in another register.
 wire [11:0]dat_task_access;   // used to select "window" of task values to show in $ffax
 
@@ -62,14 +73,6 @@ wire we_dat_l;
 wire we_dat_h;
 reg [20:13]address_out;
 reg [14:0]address_dat_out;
-
-assign ce_test_low =                   address_cpu == 16'hfd00;
-assign ce_test_mid =                   address_cpu == 16'hfd01;
-assign ce_test_high =                  address_cpu == 16'hfd02;
-
-assign ce_access_mem =                 address_cpu == 16'hfd03;
-assign ce_access_dat_lo =              address_cpu == 16'hfd04;
-assign ce_access_dat_hi =              address_cpu == 16'hfd05;
 
 assign ce_fxxx =                       (address_cpu[15:9] == 7'b1111111);
 assign ce_ffxx =                       ce_fxxx & (address_cpu[8] == 1);
@@ -82,11 +85,14 @@ assign ce_dat =                        ce_ffxx & (address_cpu[7:4] == 4'ha);
 assign ce_crm =                        flag_crm_enabled & ce_fexx;
 assign ce_mem =                        (flag_mmu_enabled & (data_dat[7:3] != 5'b0) & !ce_ffxx);
 assign we_mem =                        ce_mem & !r_w_cpu;
-assign we_dat_l =                      (e & !r_w_cpu & ce_dat & (!flag_set_mmu | (flag_set_mmu & !flag_set_mmu_ext) | (flag_set_mmu_ext & address_cpu[0])));
-assign we_dat_h =                      (e & !r_w_cpu & ce_dat & (flag_set_mmu_ext & !address_cpu[0]));
+assign we_dat_l =                      (e & !r_w_cpu & ce_dat & (!flag_alt_regs | (flag_alt_regs & !flag_ext_mmu) | (flag_ext_mmu & address_cpu[0])));
+assign we_dat_h =                      (e & !r_w_cpu & ce_dat & (flag_ext_mmu & !address_cpu[0]));
 
-assign address_mem[12:0] =             (ce_access_mem ? addr[12:0] : address_cpu[12:0]);
-assign address_mem[20:13] =            (ce_access_mem ? addr[20:13] : address_out[20:13]);
+`ifdef TESTING
+assign address_mem =                   (ce_access_mem ? addr : {address_out[20:13], address_cpu[12:0]});
+`else
+assign address_mem =                   {address_out[20:13], address_cpu[12:0]};
+`endif
 assign address_brd[15:13] =            address_out[15:13];
 assign address_dat[14:0] =             address_dat_out;
 
@@ -104,22 +110,27 @@ assign _we_dat_h =                     !we_dat_h;
 
 register #(.WIDTH(1))                  reg_mmu(e, !_reset, !r_w_cpu & ce_init0, data_cpu[6], flag_mmu_enabled);
 register #(.WIDTH(1))                  reg_crm(e, !_reset, !r_w_cpu & ce_init0, data_cpu[3], flag_crm_enabled);
-register #(.WIDTH(1))                  reg_mmu_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7], flag_set_mmu);
-register #(.WIDTH(1))                  reg_mmu_ext_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7] & data_cpu[6], flag_set_mmu_ext);
+register #(.WIDTH(1))                  reg_mmu_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7], flag_alt_regs);
+register #(.WIDTH(1))                  reg_mmu_ext_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7] & data_cpu[6], flag_ext_mmu);
 register #(.WIDTH(5))                  reg_dat_task_lo(e, !_reset, !r_w_cpu & ce_init1 & !data_cpu[7], data_cpu[4:0], dat_task_active[4:0]);
-register #(.WIDTH(7))                  reg_dat_task_hi(e, !_reset, !r_w_cpu & ce_task_hi & !flag_set_mmu, data_cpu[6:0], dat_task_active[11:5]);register #(.WIDTH(5))                  reg_dat_task_lo_access(e, !_reset, !r_w_cpu & ce_init1 & data_cpu[7], data_cpu[4:0], dat_task_access[4:0]);
-register #(.WIDTH(7))                  reg_dat_task_hi_access(e, !_reset, !r_w_cpu & ce_task_hi & flag_set_mmu, data_cpu[6:0], dat_task_access[11:5]);
+register #(.WIDTH(7))                  reg_dat_task_hi(e, !_reset, !r_w_cpu & ce_task_hi & !flag_alt_regs, data_cpu[6:0], dat_task_active[11:5]);register #(.WIDTH(5))                  reg_dat_task_lo_access(e, !_reset, !r_w_cpu & ce_init1 & data_cpu[7], data_cpu[4:0], dat_task_access[4:0]);
+register #(.WIDTH(7))                  reg_dat_task_hi_access(e, !_reset, !r_w_cpu & ce_task_hi & flag_alt_regs, data_cpu[6:0], dat_task_access[11:5]);
+`ifdef TESTING
 register #(.WIDTH(8))                  reg_addrl(e, !_reset, ce_test_low & !r_w_cpu, data_cpu, addr[7:0]);
 register #(.WIDTH(8))                  reg_addrm(e, !_reset, ce_test_mid & !r_w_cpu, data_cpu, addr[15:8]);
 register #(.WIDTH(5))                  reg_addrh(e, !_reset, ce_test_high & !r_w_cpu, data_cpu[4:0], addr[20:16]);
+`endif
 
 always @(*)
 begin
+`ifdef TESTING
    if(ce_access_dat_lo | ce_access_dat_hi)   // test code
       address_dat_out = addr[14:0];
-   else if(ce_dat & !flag_set_mmu_ext)       // DAT register access
+   else 
+`endif
+   if(ce_dat & !flag_ext_mmu)       // DAT register access
       address_dat_out = {dat_task_access,3'b0} + address_cpu[3:0];
-   else if(ce_dat & flag_set_mmu_ext)        // Extended DAT register access
+   else if(ce_dat & flag_ext_mmu)        // Extended DAT register access
       address_dat_out = {dat_task_access, address_cpu[3:1]};
    else                                      // DAT MMU usage
       address_dat_out = {dat_task_active, address_cpu[15:13]};
@@ -129,20 +140,21 @@ always @(*)
 begin
    if(ce_init0)                              // if accessing mmu register init0
       data_out = {0,flag_mmu_enabled,2'b0,flag_crm_enabled,3'b0};
-   else if(ce_init1 & !flag_set_mmu)         // read active task low bits
+   else if(ce_init1 & !flag_alt_regs)         // read active task low bits
       data_out = {3'b0, dat_task_active[4:0]}; 
-   else if(ce_init1 & flag_set_mmu)          // read windowed task low bits
-      data_out = {'b1, flag_set_mmu_ext, 'b0, dat_task_access[4:0]}; 
-   else if(ce_task_hi & !flag_set_mmu)       // read active task high bits
+   else if(ce_init1 & flag_alt_regs)          // read windowed task low bits
+      data_out = {'b1, flag_ext_mmu, 'b0, dat_task_access[4:0]}; 
+   else if(ce_task_hi & !flag_alt_regs)       // read active task high bits
       data_out = {'b0, dat_task_active[11:5]}; 
-   else if(ce_task_hi & flag_set_mmu)        // read windowed task high bits
+   else if(ce_task_hi & flag_alt_regs)        // read windowed task high bits
       data_out = {'b0, dat_task_access[11:5]}; 
-   else if(ce_dat & !flag_set_mmu_ext)       // read MMU task regs low bytes
+   else if(ce_dat & !flag_ext_mmu)       // read MMU task regs low bytes
       data_out = data_dat[7:0];
-   else if(ce_dat & flag_set_mmu_ext & !address_cpu[0]) // high byte
+   else if(ce_dat & flag_ext_mmu & !address_cpu[0]) // high byte
       data_out = data_dat[15:8];
-   else if(ce_dat & flag_set_mmu_ext & address_cpu[0]) // low byte
+   else if(ce_dat & flag_ext_mmu & address_cpu[0]) // low byte
       data_out = data_dat[7:0];
+`ifdef TESTING      
    else if(ce_test_low)
       data_out = addr[7:0];
    else if(ce_test_mid)
@@ -155,6 +167,7 @@ begin
       data_out = data_dat[7:0];
    else if(ce_access_dat_hi)
       data_out = data_dat[15:8];
+`endif
    else if(ce_mem) // we are accessing on-board RAM
       data_out = data_mem;
    else   
@@ -163,9 +176,12 @@ end
 
 always @(*)
 begin
+`ifdef TESTING      
    if(ce_access_mem)
       address_out[20:13] = {5'b0,addr[15:13]};
-   else if (ce_crm)                       // if CRM enabled, and $fexx access, pin bank to $3f
+   else
+`endif   
+   if (ce_crm)                       // if CRM enabled, and $fexx access, pin bank to $3f
     address_out = 8'h3f;   else if(flag_mmu_enabled & !ce_ffxx)   // if we're in MMU and not asking for IO page, use DAT
       address_out[20:13] = data_dat;
    else                                   // otherwise, pass through upper 3 bits.
