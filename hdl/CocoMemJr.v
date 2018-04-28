@@ -83,7 +83,7 @@ assign ce_init1 =                      ce_mmu_regs & (address_cpu[3:0] == 4'h1);
 assign ce_task_hi =                    ce_mmu_regs & (address_cpu[3:0] == 4'h7);
 assign ce_dat =                        ce_ffxx & (address_cpu[7:4] == 4'ha);
 assign ce_crm =                        flag_crm_enabled & ce_fexx;
-assign ce_mem =                        (flag_mmu_enabled & (data_dat[7:3] != 5'b0) & !ce_ffxx);
+assign ce_mem =                        (address_out[20:16] != 5'b0);
 assign we_mem =                        ce_mem & !r_w_cpu;
 assign we_dat_l =                      (e & !r_w_cpu & ce_dat & (!flag_alt_regs | (flag_alt_regs & !flag_ext_mmu) | (flag_ext_mmu & address_cpu[0])));
 assign we_dat_h =                      (e & !r_w_cpu & ce_dat & (flag_ext_mmu & !address_cpu[0]));
@@ -97,7 +97,7 @@ assign address_brd[15:13] =            address_out[15:13];
 assign address_dat[14:0] =             address_dat_out;
 
 // write to PCB when cpu asks, mmu is off, we're in IO page, or mmu is on and bank is 0
-assign r_w_brd =                       !(!r_w_cpu & (!flag_mmu_enabled | ce_ffxx | (flag_mmu_enabled & data_dat[7:3] == 0))) ;
+assign r_w_brd =                       !(!r_w_cpu & (address_out[20:16] == 0)) ;
 
 assign data_brd =                      (!r_w_brd ? data_cpu : 8'bz);
 assign data_cpu =                      (r_w_cpu ? data_out : 8'bz);
@@ -183,7 +183,7 @@ begin
 `endif   
    if (ce_crm)                       // if CRM enabled, and $fexx access, pin bank to $3f
     address_out = 8'h3f;   else if(flag_mmu_enabled & !ce_ffxx)   // if we're in MMU and not asking for IO page, use DAT
-      address_out[20:13] = data_dat;
+      address_out[20:13] = data_dat[7:0];
    else                                   // otherwise, pass through upper 3 bits.
       address_out[20:13] = {5'b0,address_cpu[15:13]};
 end

@@ -10,13 +10,13 @@
          <ClosedNode>/CocoMemJr C:|Users|brain|projects|CocoMem|hdl.jr.v2|CocoMemJr.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>CocoMemJr (C:/Users/brain/projects/CocoMEMJr/hdl/CocoMemJr.v)</SelectedItem>
+         <SelectedItem>CocoMemJr (C:/Users/brain/projects/CoCoMEMJr/hdl/CocoMemJr.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000013c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000013c0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>CocoMemJr (C:/Users/brain/projects/CocoMEMJr/hdl/CocoMemJr.v)</CurrentItem>
+      <CurrentItem>CocoMemJr (C:/Users/brain/projects/CoCoMEMJr/hdl/CocoMemJr.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
