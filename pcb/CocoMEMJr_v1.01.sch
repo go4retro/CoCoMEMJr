@@ -12433,9 +12433,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="IC4" gate="A" x="68.58" y="185.42"/>
 <instance part="IC4" gate="P" x="5.08" y="22.86"/>
 <instance part="SUPPLY16" gate="GND" x="25.4" y="5.08"/>
-<instance part="IC6" gate="G$1" x="251.46" y="119.38"/>
+<instance part="IC6" gate="G$1" x="157.48" y="177.8"/>
 <instance part="IC6" gate="G$2" x="20.32" y="22.86"/>
-<instance part="SUPPLY18" gate="GND" x="238.76" y="76.2"/>
+<instance part="SUPPLY18" gate="GND" x="144.78" y="134.62"/>
 <instance part="+3V1" gate="G$1" x="20.32" y="40.64"/>
 <instance part="+3V2" gate="G$1" x="25.4" y="40.64"/>
 <instance part="+3V3" gate="G$1" x="58.42" y="40.64"/>
@@ -12444,7 +12444,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="+3V6" gate="G$1" x="66.04" y="40.64"/>
 <instance part="+3V12" gate="G$1" x="5.08" y="40.64"/>
 <instance part="+3V13" gate="G$1" x="43.18" y="40.64"/>
-<instance part="+3V14" gate="G$1" x="236.22" y="162.56"/>
+<instance part="+3V14" gate="G$1" x="142.24" y="220.98"/>
 <instance part="IC5" gate="A" x="68.58" y="129.54" smashed="yes">
 <attribute name="NAME" x="60.96" y="155.575" size="1.778" layer="95"/>
 <attribute name="VALUE" x="60.96" y="101.6" size="1.778" layer="96"/>
@@ -12459,7 +12459,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <busses>
 <bus name="RAM_D[0..7]">
 <segment>
-<wire x1="279.4" y1="147.32" x2="279.4" y2="129.54" width="0.762" layer="92"/>
+<wire x1="185.42" y1="205.74" x2="185.42" y2="187.96" width="0.762" layer="92"/>
 </segment>
 </bus>
 <bus name="TAG_D[0..15]">
@@ -12477,72 +12477,72 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </bus>
 <bus name="RAM_A[0..20]">
 <segment>
-<wire x1="218.44" y1="147.32" x2="218.44" y2="96.52" width="0.762" layer="92"/>
+<wire x1="124.46" y1="205.74" x2="124.46" y2="154.94" width="0.762" layer="92"/>
 </segment>
 </bus>
 </busses>
 <nets>
 <net name="RAM_D0" class="0">
 <segment>
-<wire x1="279.4" y1="147.32" x2="276.86" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="149.86" x2="261.62" y2="149.86" width="0.1524" layer="91"/>
-<label x="276.86" y="149.86" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="205.74" x2="182.88" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="208.28" x2="167.64" y2="208.28" width="0.1524" layer="91"/>
+<label x="182.88" y="208.28" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D0"/>
 </segment>
 </net>
 <net name="RAM_D1" class="0">
 <segment>
-<wire x1="279.4" y1="144.78" x2="276.86" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="147.32" x2="261.62" y2="147.32" width="0.1524" layer="91"/>
-<label x="276.86" y="147.32" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="203.2" x2="182.88" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="205.74" x2="167.64" y2="205.74" width="0.1524" layer="91"/>
+<label x="182.88" y="205.74" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D1"/>
 </segment>
 </net>
 <net name="RAM_D2" class="0">
 <segment>
-<wire x1="279.4" y1="142.24" x2="276.86" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="144.78" x2="261.62" y2="144.78" width="0.1524" layer="91"/>
-<label x="276.86" y="144.78" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="200.66" x2="182.88" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="203.2" x2="167.64" y2="203.2" width="0.1524" layer="91"/>
+<label x="182.88" y="203.2" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D2"/>
 </segment>
 </net>
 <net name="RAM_D3" class="0">
 <segment>
-<wire x1="279.4" y1="139.7" x2="276.86" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="142.24" x2="261.62" y2="142.24" width="0.1524" layer="91"/>
-<label x="276.86" y="142.24" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="198.12" x2="182.88" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="200.66" x2="167.64" y2="200.66" width="0.1524" layer="91"/>
+<label x="182.88" y="200.66" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D3"/>
 </segment>
 </net>
 <net name="RAM_D4" class="0">
 <segment>
-<wire x1="279.4" y1="137.16" x2="276.86" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="139.7" x2="261.62" y2="139.7" width="0.1524" layer="91"/>
-<label x="276.86" y="139.7" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="195.58" x2="182.88" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="198.12" x2="167.64" y2="198.12" width="0.1524" layer="91"/>
+<label x="182.88" y="198.12" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D4"/>
 </segment>
 </net>
 <net name="RAM_D5" class="0">
 <segment>
-<wire x1="279.4" y1="134.62" x2="276.86" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="137.16" x2="261.62" y2="137.16" width="0.1524" layer="91"/>
-<label x="276.86" y="137.16" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="193.04" x2="182.88" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="195.58" x2="167.64" y2="195.58" width="0.1524" layer="91"/>
+<label x="182.88" y="195.58" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D5"/>
 </segment>
 </net>
 <net name="RAM_D6" class="0">
 <segment>
-<wire x1="279.4" y1="132.08" x2="276.86" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="134.62" x2="261.62" y2="134.62" width="0.1524" layer="91"/>
-<label x="276.86" y="134.62" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="190.5" x2="182.88" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="193.04" x2="167.64" y2="193.04" width="0.1524" layer="91"/>
+<label x="182.88" y="193.04" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D6"/>
 </segment>
 </net>
 <net name="RAM_D7" class="0">
 <segment>
-<wire x1="279.4" y1="129.54" x2="276.86" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="132.08" x2="261.62" y2="132.08" width="0.1524" layer="91"/>
-<label x="276.86" y="132.08" size="1.778" layer="95" rot="MR0"/>
+<wire x1="185.42" y1="187.96" x2="182.88" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="190.5" x2="167.64" y2="190.5" width="0.1524" layer="91"/>
+<label x="182.88" y="190.5" size="1.778" layer="95" rot="MR0"/>
 <pinref part="IC6" gate="G$1" pin="D7"/>
 </segment>
 </net>
@@ -12599,12 +12599,12 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </segment>
 <segment>
 <pinref part="IC6" gate="G$1" pin="!CE"/>
-<wire x1="241.3" y1="93.98" x2="238.76" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="93.98" x2="238.76" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="152.4" x2="144.78" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="152.4" x2="144.78" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="G$1" pin="!OE"/>
-<wire x1="238.76" y1="88.9" x2="241.3" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="88.9" x2="238.76" y2="78.74" width="0.1524" layer="91"/>
-<junction x="238.76" y="88.9"/>
+<wire x1="144.78" y1="147.32" x2="147.32" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="147.32" x2="144.78" y2="137.16" width="0.1524" layer="91"/>
+<junction x="144.78" y="147.32"/>
 <pinref part="SUPPLY18" gate="GND" pin="GND"/>
 </segment>
 <segment>
@@ -12900,176 +12900,176 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <net name="!RAM_WE" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="!WE"/>
-<wire x1="241.3" y1="86.36" x2="215.9" y2="86.36" width="0.1524" layer="91"/>
-<label x="215.9" y="86.36" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="147.32" y1="144.78" x2="121.92" y2="144.78" width="0.1524" layer="91"/>
+<label x="121.92" y="144.78" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="RAM_A0" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A0"/>
-<wire x1="218.44" y1="147.32" x2="220.98" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="149.86" x2="241.3" y2="149.86" width="0.1524" layer="91"/>
-<label x="220.98" y="149.86" size="1.778" layer="95"/>
+<wire x1="124.46" y1="205.74" x2="127" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="127" y1="208.28" x2="147.32" y2="208.28" width="0.1524" layer="91"/>
+<label x="127" y="208.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A1" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A1"/>
-<wire x1="218.44" y1="144.78" x2="220.98" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="147.32" x2="241.3" y2="147.32" width="0.1524" layer="91"/>
-<label x="220.98" y="147.32" size="1.778" layer="95"/>
+<wire x1="124.46" y1="203.2" x2="127" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="127" y1="205.74" x2="147.32" y2="205.74" width="0.1524" layer="91"/>
+<label x="127" y="205.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A2" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A2"/>
-<wire x1="218.44" y1="142.24" x2="220.98" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="144.78" x2="241.3" y2="144.78" width="0.1524" layer="91"/>
-<label x="220.98" y="144.78" size="1.778" layer="95"/>
+<wire x1="124.46" y1="200.66" x2="127" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="127" y1="203.2" x2="147.32" y2="203.2" width="0.1524" layer="91"/>
+<label x="127" y="203.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A3" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A3"/>
-<wire x1="218.44" y1="139.7" x2="220.98" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="142.24" x2="241.3" y2="142.24" width="0.1524" layer="91"/>
-<label x="220.98" y="142.24" size="1.778" layer="95"/>
+<wire x1="124.46" y1="198.12" x2="127" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="127" y1="200.66" x2="147.32" y2="200.66" width="0.1524" layer="91"/>
+<label x="127" y="200.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A4" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A4"/>
-<wire x1="218.44" y1="137.16" x2="220.98" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="139.7" x2="241.3" y2="139.7" width="0.1524" layer="91"/>
-<label x="220.98" y="139.7" size="1.778" layer="95"/>
+<wire x1="124.46" y1="195.58" x2="127" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="127" y1="198.12" x2="147.32" y2="198.12" width="0.1524" layer="91"/>
+<label x="127" y="198.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A5" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A5"/>
-<wire x1="218.44" y1="134.62" x2="220.98" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="137.16" x2="241.3" y2="137.16" width="0.1524" layer="91"/>
-<label x="220.98" y="137.16" size="1.778" layer="95"/>
+<wire x1="124.46" y1="193.04" x2="127" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="127" y1="195.58" x2="147.32" y2="195.58" width="0.1524" layer="91"/>
+<label x="127" y="195.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A6" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A6"/>
-<wire x1="218.44" y1="132.08" x2="220.98" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="134.62" x2="241.3" y2="134.62" width="0.1524" layer="91"/>
-<label x="220.98" y="134.62" size="1.778" layer="95"/>
+<wire x1="124.46" y1="190.5" x2="127" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="127" y1="193.04" x2="147.32" y2="193.04" width="0.1524" layer="91"/>
+<label x="127" y="193.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A7" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A7"/>
-<wire x1="218.44" y1="129.54" x2="220.98" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="132.08" x2="241.3" y2="132.08" width="0.1524" layer="91"/>
-<label x="220.98" y="132.08" size="1.778" layer="95"/>
+<wire x1="124.46" y1="187.96" x2="127" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="127" y1="190.5" x2="147.32" y2="190.5" width="0.1524" layer="91"/>
+<label x="127" y="190.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A8" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A8"/>
-<wire x1="218.44" y1="127" x2="220.98" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="129.54" x2="241.3" y2="129.54" width="0.1524" layer="91"/>
-<label x="220.98" y="129.54" size="1.778" layer="95"/>
+<wire x1="124.46" y1="185.42" x2="127" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="127" y1="187.96" x2="147.32" y2="187.96" width="0.1524" layer="91"/>
+<label x="127" y="187.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A9" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A9"/>
-<wire x1="218.44" y1="124.46" x2="220.98" y2="127" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="127" x2="241.3" y2="127" width="0.1524" layer="91"/>
-<label x="220.98" y="127" size="1.778" layer="95"/>
+<wire x1="124.46" y1="182.88" x2="127" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="127" y1="185.42" x2="147.32" y2="185.42" width="0.1524" layer="91"/>
+<label x="127" y="185.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A10" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A10"/>
-<wire x1="218.44" y1="121.92" x2="220.98" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="124.46" x2="241.3" y2="124.46" width="0.1524" layer="91"/>
-<label x="220.98" y="124.46" size="1.778" layer="95"/>
+<wire x1="124.46" y1="180.34" x2="127" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="127" y1="182.88" x2="147.32" y2="182.88" width="0.1524" layer="91"/>
+<label x="127" y="182.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A11" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A11"/>
-<wire x1="218.44" y1="119.38" x2="220.98" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="121.92" x2="241.3" y2="121.92" width="0.1524" layer="91"/>
-<label x="220.98" y="121.92" size="1.778" layer="95"/>
+<wire x1="124.46" y1="177.8" x2="127" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="127" y1="180.34" x2="147.32" y2="180.34" width="0.1524" layer="91"/>
+<label x="127" y="180.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A12" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A12"/>
-<wire x1="218.44" y1="116.84" x2="220.98" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="119.38" x2="241.3" y2="119.38" width="0.1524" layer="91"/>
-<label x="220.98" y="119.38" size="1.778" layer="95"/>
+<wire x1="124.46" y1="175.26" x2="127" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="127" y1="177.8" x2="147.32" y2="177.8" width="0.1524" layer="91"/>
+<label x="127" y="177.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A13" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A13"/>
-<wire x1="218.44" y1="114.3" x2="220.98" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="116.84" x2="241.3" y2="116.84" width="0.1524" layer="91"/>
-<label x="220.98" y="116.84" size="1.778" layer="95"/>
+<wire x1="124.46" y1="172.72" x2="127" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="127" y1="175.26" x2="147.32" y2="175.26" width="0.1524" layer="91"/>
+<label x="127" y="175.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A14" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A14"/>
-<wire x1="218.44" y1="111.76" x2="220.98" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="114.3" x2="241.3" y2="114.3" width="0.1524" layer="91"/>
-<label x="220.98" y="114.3" size="1.778" layer="95"/>
+<wire x1="124.46" y1="170.18" x2="127" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="127" y1="172.72" x2="147.32" y2="172.72" width="0.1524" layer="91"/>
+<label x="127" y="172.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A15" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A15"/>
-<wire x1="218.44" y1="109.22" x2="220.98" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="111.76" x2="241.3" y2="111.76" width="0.1524" layer="91"/>
-<label x="220.98" y="111.76" size="1.778" layer="95"/>
+<wire x1="124.46" y1="167.64" x2="127" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="127" y1="170.18" x2="147.32" y2="170.18" width="0.1524" layer="91"/>
+<label x="127" y="170.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A16" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A16"/>
-<wire x1="218.44" y1="106.68" x2="220.98" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="109.22" x2="241.3" y2="109.22" width="0.1524" layer="91"/>
-<label x="220.98" y="109.22" size="1.778" layer="95"/>
+<wire x1="124.46" y1="165.1" x2="127" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="127" y1="167.64" x2="147.32" y2="167.64" width="0.1524" layer="91"/>
+<label x="127" y="167.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A17" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A17"/>
-<wire x1="218.44" y1="104.14" x2="220.98" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="106.68" x2="241.3" y2="106.68" width="0.1524" layer="91"/>
-<label x="220.98" y="106.68" size="1.778" layer="95"/>
+<wire x1="124.46" y1="162.56" x2="127" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="127" y1="165.1" x2="147.32" y2="165.1" width="0.1524" layer="91"/>
+<label x="127" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A18" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A18"/>
-<wire x1="218.44" y1="101.6" x2="220.98" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="104.14" x2="241.3" y2="104.14" width="0.1524" layer="91"/>
-<label x="220.98" y="104.14" size="1.778" layer="95"/>
+<wire x1="124.46" y1="160.02" x2="127" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="127" y1="162.56" x2="147.32" y2="162.56" width="0.1524" layer="91"/>
+<label x="127" y="162.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A19" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A19"/>
-<wire x1="218.44" y1="99.06" x2="220.98" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="101.6" x2="241.3" y2="101.6" width="0.1524" layer="91"/>
-<label x="220.98" y="101.6" size="1.778" layer="95"/>
+<wire x1="124.46" y1="157.48" x2="127" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="127" y1="160.02" x2="147.32" y2="160.02" width="0.1524" layer="91"/>
+<label x="127" y="160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RAM_A20" class="0">
 <segment>
 <pinref part="IC6" gate="G$1" pin="A20"/>
-<wire x1="218.44" y1="96.52" x2="220.98" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="99.06" x2="241.3" y2="99.06" width="0.1524" layer="91"/>
-<label x="220.98" y="99.06" size="1.778" layer="95"/>
+<wire x1="124.46" y1="154.94" x2="127" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="127" y1="157.48" x2="147.32" y2="157.48" width="0.1524" layer="91"/>
+<label x="127" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -13105,8 +13105,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </segment>
 <segment>
 <pinref part="IC6" gate="G$1" pin="CE2"/>
-<wire x1="241.3" y1="91.44" x2="236.22" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="236.22" y1="91.44" x2="236.22" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="149.86" x2="142.24" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="149.86" x2="142.24" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="+3V14" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
