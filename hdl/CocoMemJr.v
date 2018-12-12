@@ -83,7 +83,7 @@ assign ce_init1 =                      ce_mmu_regs & (address_cpu[3:0] == 4'h1);
 assign ce_task_hi =                    ce_mmu_regs & (address_cpu[3:0] == 4'h7);
 assign ce_dat =                        ce_ffxx & (address_cpu[7:4] == 4'ha);
 assign ce_crm =                        flag_crm_enabled & ce_fexx;
-assign ce_mem =                        (address_out[20:16] != 5'b00111);
+assign ce_mem =                        !ce_ffxx & flag_mmu_enabled & (address_out[20:16] != 5'b00111);   // hole at bank 38-3f for main memory
 assign we_mem =                        ce_mem & !r_w_cpu;
 assign we_dat_l =                      (e & !r_w_cpu & ce_dat & (!flag_alt_regs | (flag_alt_regs & !flag_ext_mmu) | (flag_ext_mmu & address_cpu[0])));
 assign we_dat_h =                      (e & !r_w_cpu & ce_dat & (flag_ext_mmu & !address_cpu[0]));
@@ -96,8 +96,8 @@ assign address_mem =                   {address_out[20:13], address_cpu[12:0]};
 assign address_brd[15:13] =            address_out[15:13];
 assign address_dat[14:0] =             address_dat_out;
 
-// write to PCB when cpu asks, mmu is off, we're in IO page, or mmu is on and bank is local ram
-assign r_w_brd =                       !(!r_w_cpu & (!flag_mmu_enabled | (flag_mmu_enabled & !ce_mem)));
+// write to PCB when cpu asks, mmu is off, we're in IO page, or mmu is on and bank is internal ram
+assign r_w_brd =                       !(!r_w_cpu & !ce_mem) ;
 
 assign data_brd =                      (!r_w_brd ? data_cpu : 8'bz);
 assign data_cpu =                      (r_w_cpu ? data_out : 8'bz);
@@ -113,8 +113,10 @@ register #(.WIDTH(1))                  reg_crm(e, !_reset, !r_w_cpu & ce_init0, 
 register #(.WIDTH(1))                  reg_mmu_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7], flag_alt_regs);
 register #(.WIDTH(1))                  reg_mmu_ext_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7] & data_cpu[6], flag_ext_mmu);
 register #(.WIDTH(5))                  reg_dat_task_lo(e, !_reset, !r_w_cpu & ce_init1 & !data_cpu[7], data_cpu[4:0], dat_task_active[4:0]);
-register #(.WIDTH(7))                  reg_dat_task_hi(e, !_reset, !r_w_cpu & ce_task_hi & !flag_alt_regs, data_cpu[6:0], dat_task_active[11:5]);register #(.WIDTH(5))                  reg_dat_task_lo_access(e, !_reset, !r_w_cpu & ce_init1 & data_cpu[7], data_cpu[4:0], dat_task_access[4:0]);
-register #(.WIDTH(7))                  reg_dat_task_hi_access(e, !_reset, !r_w_cpu & ce_task_hi & flag_alt_regs, data_cpu[6:0], dat_task_access[11:5]);
+register #(.WIDTH(7))                  reg_dat_task_hi(e, !_reset, !r_w_cpu & ce_task_hi & !flag_alt_regs, data_cpu[6:0], dat_task_active[11:5]);
+register #(.WIDTH(5))                  reg_dat_task_lo_access(e, !_reset, !r_w_cpu & ce_init1 & data_cpu[7], data_cpu[4:0], dat_task_access[4:0]);
+register #(.WIDTH(7))                  reg_dat_task_hi_access(e, !_reset, !r_w_cpu & ce_task_hi & flag_alt_regs, data_cpu[6:0], dat_task_access[11:5]);
+
 `ifdef TESTING
 register #(.WIDTH(8))                  reg_addrl(e, !_reset, ce_test_low & !r_w_cpu, data_cpu, addr[7:0]);
 register #(.WIDTH(8))                  reg_addrm(e, !_reset, ce_test_mid & !r_w_cpu, data_cpu, addr[15:8]);
@@ -182,7 +184,8 @@ begin
    else
 `endif   
    if (ce_crm)                       // if CRM enabled, and $fexx access, pin bank to $3f
-    address_out = 8'h3f;   else if(flag_mmu_enabled & !ce_ffxx)   // if we're in MMU and not asking for IO page, use DAT
+    address_out = 8'h3f;
+   else if(flag_mmu_enabled & !ce_ffxx)   // if we're in MMU and not asking for IO page, use DAT
       address_out[20:13] = data_dat[7:0];
    else                                   // otherwise, pass through upper 3 bits.
       address_out[20:13] = {5'b0,address_cpu[15:13]};
