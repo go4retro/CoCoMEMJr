@@ -93,7 +93,7 @@ assign ce_crm =                        flag_crm_enabled & ce_fexx;
 assign ce_mem_template =               flag_mmu_enabled & (address_out[20:16] != 5'b0);   // hole at bank 00-07 for main memory
 assign ce_mem =                        (ce_alt_vector | !ce_ffxx) & ce_mem_template;      // mmu on and (crm & vectors or anything but IO) 
 // writes to vectors bleed through, when mmu on, even if crm not on.  This allows one to change vectors before making them active.
-assign we_mem =                        ((ce_vector & flag_mmu_enabled) | !ce_ffxx) & ce_mem_template & !r_w_cpu;
+assign we_mem =                        (e & (ce_vector & flag_mmu_enabled) | !ce_ffxx) & ce_mem_template & !r_w_cpu;
 assign we_dat_l =                      (e & !r_w_cpu & ce_dat & (!flag_alt_regs | (flag_alt_regs & !flag_ext_mmu) | (flag_ext_mmu & address_cpu[0])));
 assign we_dat_h =                      (e & !r_w_cpu & ce_dat & (flag_ext_mmu & !address_cpu[0]));
 
@@ -202,7 +202,7 @@ begin
    else if(ce_access_dat_hi)
       data_out = data_dat[15:8];
 `endif
-   else if(ce_mem) // we are accessing on-board RAM
+   else if(ce_mem) // we are reading on-board RAM
       data_out = data_mem;
    else   
       data_out = data_brd;
