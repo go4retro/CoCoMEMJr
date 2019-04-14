@@ -168,4 +168,7 @@ pip-log.txt
 #Project Stuff
 .dep
 obj-*
-/hdl/_xmsgs/*.xmsgs
+*.xmsgs
+/hdl/*.err
+/pcb/*.lck
+/hdl/iseconfig/*.filter

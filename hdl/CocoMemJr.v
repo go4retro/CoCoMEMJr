@@ -163,7 +163,7 @@ begin
    else 
 `endif
    if(ce_dat & !flag_ext_mmu)                   // DAT register access
-      address_dat_out = {dat_task_access,3'b0} + address_cpu[3:0];
+      address_dat_out = {dat_task_access[11:1], address_cpu[3:0]};
    else if(ce_dat & flag_ext_mmu)               // Extended DAT register access
       address_dat_out = {dat_task_access, address_cpu[3:1]};
    else                                         // DAT MMU usage
