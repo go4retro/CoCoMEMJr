@@ -146,6 +146,7 @@ register #(.WIDTH(1))                  reg_mmu_set(e, !_reset, !r_w_cpu & ce_ini
 register #(.WIDTH(1))                  reg_mmu_ext_set(e, !_reset, !r_w_cpu & ce_init1, data_cpu[7] & data_cpu[6], flag_ext_mmu);
 register #(.WIDTH(5))                  reg_dat_task_lo(e, !_reset, !r_w_cpu & ce_init1 & !data_cpu[7], data_cpu[4:0], dat_task_active[4:0]);
 register #(.WIDTH(7))                  reg_dat_task_hi(e, !_reset, !r_w_cpu & ce_task_hi & !flag_alt_regs, data_cpu[6:0], dat_task_active[11:5]);
+
 register #(.WIDTH(5))                  reg_dat_task_lo_access(e, !_reset, !r_w_cpu & ce_init1 & data_cpu[7], data_cpu[4:0], dat_task_access[4:0]);
 register #(.WIDTH(7))                  reg_dat_task_hi_access(e, !_reset, !r_w_cpu & ce_task_hi & flag_alt_regs, data_cpu[6:0], dat_task_access[11:5]);
 
@@ -163,7 +164,7 @@ begin
    else 
 `endif
    if(ce_dat & !flag_ext_mmu)                   // DAT register access
-      address_dat_out = {dat_task_access[11:1], address_cpu[3:0]};
+      address_dat_out = {dat_task_active[11:1], address_cpu[3:0]};
    else if(ce_dat & flag_ext_mmu)               // Extended DAT register access
       address_dat_out = {dat_task_access, address_cpu[3:1]};
    else                                         // DAT MMU usage
