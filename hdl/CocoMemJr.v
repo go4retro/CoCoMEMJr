@@ -22,6 +22,7 @@ module CocoMemJr(
                  input _reset,
                  input e,
                  input q,
+                 input ba,
                  input [15:0]address_cpu,
                  output [15:13]address_brd,
                  inout [7:0]data_cpu,
@@ -126,13 +127,13 @@ assign address_mem =                   (ce_access_mem ? addr : {address_out[20:1
 */
 assign address_mem =                   {address_out[20:13], address_cpu[12:0]};
 `endif
-assign address_brd[15:13] =            address_out[15:13];
+assign address_brd[15:13] =            (!ba & (e | q) ? address_out[15:13] : 3'bz);
 assign address_dat[14:0] =             address_dat_out;
 
 // write to PCB when cpu asks, mmu is off, we're in IO page, or mmu is on and bank is internal ram
-assign r_w_brd =                       !(!r_w_cpu & !ce_mem) ;
+assign r_w_brd =                       !(!ba & !r_w_cpu & !ce_mem) ;
 
-assign data_brd =                      (!r_w_brd & (e | q) ? data_cpu : 8'bz);
+assign data_brd =                      (!ba & !r_w_brd & (e | q) ? data_cpu : 8'bz);
 assign data_cpu =                      (r_w_cpu ? data_out : 8'bz);
 assign data_mem =                      (!r_w_cpu ? data_cpu : 8'bz);
 assign data_dat[7:0] =                 (we_dat_l ? data_cpu : 8'bz);

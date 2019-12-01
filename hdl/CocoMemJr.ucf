@@ -60,6 +60,7 @@ NET "address_mem<6>"  LOC = "P39"  ;
 NET "address_mem<7>"  LOC = "P40"  ; 
 NET "address_mem<8>"  LOC = "P41"  ; 
 NET "address_mem<9>"  LOC = "P48"  ; 
+NET "ba"  LOC = "p105"  ;
 NET "data_brd<0>"  LOC = "P96"  ; 
 NET "data_brd<1>"  LOC = "P93"  ; 
 NET "data_brd<2>"  LOC = "P91"  ; 
@@ -101,7 +102,7 @@ NET "data_mem<5>"  LOC = "P45"  ;
 NET "data_mem<6>"  LOC = "P44"  ; 
 NET "data_mem<7>"  LOC = "P43"  ; 
 NET "e"  LOC = "P32"  ; 
-NET "q"  LOC = "p30"  ;
+NET "q"  LOC = "p30"  ; 
 NET "r_w_brd"  LOC = "P100"  ; 
 NET "r_w_cpu"  LOC = "P101"  ; 
 

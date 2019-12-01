@@ -101,7 +101,7 @@ NET "data_mem<5>"  LOC = "P45"  ;
 NET "data_mem<6>"  LOC = "P44"  ; 
 NET "data_mem<7>"  LOC = "P43"  ; 
 NET "e"  LOC = "P32"  ; 
-NET "q"  LOC = "p112"  ;
+NET "q"  LOC = "p30"  ;
 NET "r_w_brd"  LOC = "P100"  ; 
 NET "r_w_cpu"  LOC = "P101"  ; 
 
