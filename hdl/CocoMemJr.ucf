@@ -2,8 +2,8 @@
 
 #PACE: Start of PACE I/O Pin Assignments
 NET "_reset"  LOC = "P103"  ; 
-NET "_we_dat_h"  LOC = "P130"  ;
-NET "_we_dat_l"  LOC = "P140"  ;
+NET "_we_dat_h"  LOC = "P130"  ; 
+NET "_we_dat_l"  LOC = "P140"  ; 
 NET "_we_ram"  LOC = "P22"  ; 
 NET "address_brd<13>"  LOC = "P60"  ; 
 NET "address_brd<14>"  LOC = "P64"  ; 
@@ -101,6 +101,7 @@ NET "data_mem<5>"  LOC = "P45"  ;
 NET "data_mem<6>"  LOC = "P44"  ; 
 NET "data_mem<7>"  LOC = "P43"  ; 
 NET "e"  LOC = "P32"  ; 
+NET "q"  LOC = "p30"  ;
 NET "r_w_brd"  LOC = "P100"  ; 
 NET "r_w_cpu"  LOC = "P101"  ; 
 
