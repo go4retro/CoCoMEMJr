@@ -84,7 +84,7 @@ reg [14:0]address_dat_out;
 assign ce_fxxx =                       (address_cpu[15:9] == 7'b1111111);
 assign ce_ffxx =                       ce_fxxx & (address_cpu[8] == 1);
 assign ce_vector =                     ce_ffxx & (address_cpu[7:4] == 4'b1111);
-assign ce_alt_vector =                 ce_vector & flag_crm_enabled;
+assign ce_alt_vector =                 ce_vector & flag_crm_enabled & flag_mmu_enabled;
 assign ce_fexx =                       ce_fxxx & (address_cpu[8] == 0);
 assign ce_mmu_regs =                   ce_ffxx & (address_cpu[7:4] == 4'h9);
 assign ce_init0 =                      ce_mmu_regs & (address_cpu[3:0] == 4'h0);
@@ -93,18 +93,51 @@ assign ce_task_hi =                    ce_mmu_regs & (address_cpu[3:0] == 4'h7);
 assign ce_dat =                        ce_ffxx & (address_cpu[7:4] == 4'ha);
 assign ce_crm =                        flag_crm_enabled & ce_fexx;
 assign ce_mem_template =               flag_mmu_enabled & (address_out[20:16] != 5'b0);   // hole at bank 00-07 for main memory
-assign ce_mem =                        (ce_alt_vector | !ce_ffxx) & ce_mem_template;      // mmu on and (crm & vectors or anything but IO) 
+assign ce_mem =                        ce_mem_template      //accessing on board RAM
+                                       & (ce_alt_vector     // and upper 16 bytes with CRM bit on
+                                          | 
+                                          !ce_ffxx          // but not any other ffxx locations
+                                         );
 // writes to vectors bleed through, when mmu on, even if crm not on.  This allows one to change vectors before making them active.
-assign we_mem =                        (e & (ce_vector & flag_mmu_enabled) | !ce_ffxx) & ce_mem_template & !r_w_cpu;
-assign we_dat_l =                      (e & !r_w_cpu & ce_dat & (!flag_alt_regs | (flag_alt_regs & !flag_ext_mmu) | (flag_ext_mmu & address_cpu[0])));
-assign we_dat_h =                      (e & !r_w_cpu & ce_dat & (flag_ext_mmu & !address_cpu[0]));
+assign we_mem =                        e                    // top half of E
+                                       & !r_w_cpu           // write cycle
+                                       & ce_mem_template    // anything but pages 0-7
+                                       & (
+                                          ce_vector         // we're writing to upper 16 bytes of mem map
+                                          | 
+                                          !ce_ffxx          // but not anywhere else in ffxx
+                                         );
+assign we_dat_l =                      e                    // top half of E
+                                       & !r_w_cpu           // write cycle
+                                       & ce_dat             // DAT access
+                                       & (                  // AND
+                                          !flag_alt_regs    // NOT alternative flags 
+                                          | (
+                                             flag_alt_regs  // OR ALT flags and 
+                                             & 
+                                             !flag_ext_mmu  // we're accessing DAT byte wide
+                                            ) 
+                                          | (               // OR
+                                             flag_ext_mmu   // We're accessing DAT word wide and
+                                             & 
+                                             address_cpu[0] // address[0] = 0
+                                            )
+                                         );
+assign we_dat_h =                      e                    // Top half of E
+                                       & !r_w_cpu           // Write cycle
+                                       & ce_dat             // DAT space
+                                       & (
+                                          flag_ext_mmu      // we're accessing DAT word wide
+                                          & 
+                                          !address_cpu[0]   // and low address bit set
+                                         );
 
 `ifdef TESTING
 assign address_mem =                   (ce_access_mem ? addr : {address_out[20:13], address_cpu[12:0]});
 `else
 /*
    The Color Computer 3 has the $fffx vectors jump through $fefx to their final destination, as a way 
-   to suport remapping the vectors (normally, regardless of SAM mode, $fffx is pulled from ROM)
+   to support remapping the vectors (normally, regardless of SAM mode, $fffx is pulled from ROM)
    The Coco1/2 vectors jump through low memory, because some Cocos were not 64K machines, so low
    memory was the only sure place to send the vectors.
    
