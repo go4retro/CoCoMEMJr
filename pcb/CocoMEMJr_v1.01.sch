@@ -226,7 +226,7 @@ Motorola DRAMs&lt;p&gt;
 <pin name="VSS" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
 <pin name="VCC" x="0" y="7.62" visible="pad" length="middle" direction="pwr" rot="R270"/>
 </symbol>
-<symbol name="6809E">
+<symbol name="MC6809E">
 <wire x1="-12.7" y1="-43.18" x2="7.62" y2="-43.18" width="0.4064" layer="94"/>
 <wire x1="7.62" y1="-43.18" x2="7.62" y2="40.64" width="0.4064" layer="94"/>
 <wire x1="7.62" y1="40.64" x2="-12.7" y2="40.64" width="0.4064" layer="94"/>
@@ -274,10 +274,10 @@ Motorola DRAMs&lt;p&gt;
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="6809E" prefix="IC" uservalue="yes">
+<deviceset name="MC6809E" prefix="IC" uservalue="yes">
 <description>&lt;b&gt;MICROCONTROLLER/MEMORY DEVICE&lt;/b&gt;</description>
 <gates>
-<gate name="A" symbol="6809E" x="0" y="0"/>
+<gate name="A" symbol="MC6809E" x="0" y="0"/>
 <gate name="P" symbol="PWRVSS" x="-33.02" y="22.86" addlevel="request"/>
 </gates>
 <devices>
@@ -10470,8 +10470,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="SUPPLY2" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="VCC" device=""/>
-<part name="IC1" library="micro-motorola" deviceset="6809E" device="R" value="CPU"/>
-<part name="IC2" library="micro-motorola" deviceset="6809E" device="R" value="HDR"/>
+<part name="IC1" library="micro-motorola" deviceset="MC6809E" device="R" value="CPU"/>
+<part name="IC2" library="micro-motorola" deviceset="MC6809E" device="R" value="HDR"/>
 <part name="FRAME3" library="frames" deviceset="DINA3_L" device=""/>
 <part name="TDI" library="testpad" deviceset="TP" device="TP08R"/>
 <part name="TMS" library="testpad" deviceset="TP" device="TP08R"/>
